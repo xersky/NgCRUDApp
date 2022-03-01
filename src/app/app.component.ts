@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Item } from './models/item.model';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'MiniCRUDApp';
+
+  title = 'Mini CRUD App';
+
+  apiUrl = 'http://localhost:3000/items'
+
+
+  constructor(private http: HttpClient) { }
+
+  getAPI() {
+    return this.http.get(this.apiUrl);
+  }
+
 }

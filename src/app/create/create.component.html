@@ -1,0 +1,20 @@
+<div class="container-md w-25 p-3">
+<form [formGroup]="itemForm" (ngSubmit)="submitItem()">
+    <div class="mb-3">
+      <label class="form-label is-required">Item's Reference</label>
+      <input type="text" class="form-control" placeholder="Enter the title" formControlName="title">
+    </div>
+    <div class="mb-3">
+      <label class="form-label is-required">Item's Description</label>
+      <input type="text" class="form-control" placeholder="Enter the description" formControlName="description">
+    </div>
+    <div class="mb-3">
+      <div class="form-check form-switch">
+        <label class="form-check-label">Item's Availability</label>
+        <input class="form-check-input" type="checkbox" role="switch" formControlName="available">
+      </div>
+    </div>
+    <button [disabled]="!itemForm.valid" type="submit" class="btn btn-success btn-lg">Add Item</button>
+</form>
+</div>
+

@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "1: item",
+      "description": "phones",
+      "available": true
+    },
+    {
+      "id": 2,
+      "title": "2: item",
+      "description": "tv",
+      "available": true
+    },
+    {
+      "id": 3,
+      "title": "3: item",
+      "description": "laptop",
+      "available": true
+    },
+    {
+      "id": 4,
+      "title": "4: item",
+      "description": "new desc",
+      "available": true
+    }
+  ]
+}
