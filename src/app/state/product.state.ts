@@ -4,12 +4,13 @@ export enum DataStateTypeEnum {
   ERROR
 }
 
-export enum ItemActionsType {
-  GET_ALL_ITEMS = '[Items] get all Items'
+export enum ItemActionType {
+  GET_ALL_ITEMS = '[Items] get all Items',
+  SWITCH_AVAILABILITY = '[Item.available] switch availability of Item'
 }
 
 export interface ActionEvent {
-  actionType?: ItemActionsType;
+  actionType?: ItemActionType;
   payload?: any;
 }
 

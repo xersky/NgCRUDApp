@@ -1,9 +1,10 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ItemService} from '../services/item.service';
 import {Item} from '../models/item.model';
 import {Observable, of} from 'rxjs';
-import {ActionEvent, DataStateTypeEnum, ItemActionsType, ItemState} from '../state/product.state';
-import {catchError, map, startWith} from 'rxjs/operators';
+import {ActionEvent, DataStateTypeEnum, ItemActionType, ItemState} from '../state/product.state';
+import {catchError, map, retry, startWith} from 'rxjs/operators';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-read',
@@ -15,10 +16,11 @@ export class ReadComponent implements OnInit {
 
   items: Item[] | null = null;
   items$: Observable<ItemState<Item[]>> | null = null;
+  item$: Observable<ItemState<Item>> | null = null;
 
   @Input() submittedItem: Boolean | undefined;
 
-  constructor(private itemService: ItemService) {
+  constructor(private itemService: ItemService, private activatedRoute: ActivatedRoute) {
   }
 
 
@@ -32,7 +34,6 @@ export class ReadComponent implements OnInit {
       startWith({state: DataStateTypeEnum.LOADING}),
       catchError(err => of({state: DataStateTypeEnum.ERROR, error: err.message}))
     );
-
   }
 
 
@@ -46,9 +47,10 @@ export class ReadComponent implements OnInit {
 
 
   switchAvailabilityOfItem(item: Item) {
-    item.available = !item.available;
-    this.itemService.update(item, item.id)
+    this.itemService.updateAvailabilite(item)
       .subscribe(res => {
+          res.available = item.available
+          //this.getAllItemsObs();
         },
         error => {
           console.log(error);
@@ -64,10 +66,14 @@ export class ReadComponent implements OnInit {
 
   onActionEvent($event: ActionEvent) {
     switch ($event.actionType) {
-      case ItemActionsType.GET_ALL_ITEMS:
+      case ItemActionType.GET_ALL_ITEMS:
         this.getAllItemsObs();
+        break;
+      case ItemActionType.SWITCH_AVAILABILITY:
+        this.switchAvailabilityOfItem($event.payload);
+        break;
+
     }
   }
-
 
 }

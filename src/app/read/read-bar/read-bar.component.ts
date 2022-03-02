@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {ActionEvent, ItemActionsType} from '../../state/product.state';
+import {ActionEvent, ItemActionType} from '../../state/product.state';
 
 @Component({
   selector: 'app-read-bar',
@@ -9,12 +9,14 @@ import {ActionEvent, ItemActionsType} from '../../state/product.state';
 export class ReadBarComponent implements OnInit {
 
   @Output() itemEventEmitter : EventEmitter<ActionEvent> = new EventEmitter<ActionEvent>()
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
   getAllItems() {
-    this.itemEventEmitter.emit({actionType:ItemActionsType.GET_ALL_ITEMS})
+    this.itemEventEmitter.emit({actionType:ItemActionType.GET_ALL_ITEMS})
   }
+
 }

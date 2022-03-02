@@ -1,7 +1,7 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import {Item} from '../../models/item.model';
 import {Observable} from 'rxjs';
-import {DataStateTypeEnum, ItemState} from '../../state/product.state';
+import {ActionEvent, DataStateTypeEnum, ItemActionType, ItemState} from '../../state/product.state';
 
 
 @Component({
@@ -12,7 +12,7 @@ import {DataStateTypeEnum, ItemState} from '../../state/product.state';
 export class ReadItemsComponent implements OnInit {
 
   @Input() items$: Observable<ItemState<Item[]>>| null = null;
-  @Output() newItemAvailabilityEvent = new EventEmitter<Item>();
+  @Output() newItemAvailabilityEvent: EventEmitter<ActionEvent> = new EventEmitter<ActionEvent>()
   readonly dataStateTypeEnum = DataStateTypeEnum;
 
   constructor() {
@@ -22,7 +22,7 @@ export class ReadItemsComponent implements OnInit {
   }
 
   updateItem(item: Item) {
-    this.newItemAvailabilityEvent.emit(item);
+    this.newItemAvailabilityEvent.emit({actionType: ItemActionType.SWITCH_AVAILABILITY, payload: item});
   }
 
 }

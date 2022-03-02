@@ -12,7 +12,7 @@
     </thead>
     <tbody align="center">
     <app-read-items
-      (newItemAvailabilityEvent)="switchAvailabilityOfItem($event)"
+      (newItemAvailabilityEvent)="onActionEvent($event)"
       [items$]="items$" style="display: contents">
     </app-read-items>
     </tbody>

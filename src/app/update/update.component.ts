@@ -50,7 +50,6 @@ export class UpdateComponent implements OnInit {
   }
 
   submitUpdatedItem(): void {
-
     this.itemService.update(this.itemFormUpdate.value, this.itemFormUpdate.controls['id'].value)
       .subscribe(res => {
           this.router.navigate(['/items']);
