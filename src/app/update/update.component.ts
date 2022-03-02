@@ -21,7 +21,6 @@ export class UpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.getItem()
-    //this.updateFormItem()
   }
 
   /*

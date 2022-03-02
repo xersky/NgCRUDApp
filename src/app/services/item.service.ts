@@ -14,7 +14,7 @@ export class ItemService {
   }
 
 
-  getAll(): Observable<Item[]> {
+  getAll() {
     return this.httpClient.get<Item[]>(this.URI);
   }
 

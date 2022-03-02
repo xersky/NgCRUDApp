@@ -3,26 +3,26 @@
     {
       "id": 1,
       "title": "1: item",
-      "description": "phones",
-      "available": true
+      "description": "phone",
+      "available": false
     },
     {
       "id": 2,
       "title": "2: item",
       "description": "tv",
-      "available": true
+      "available": false
     },
     {
       "id": 3,
       "title": "3: item",
       "description": "laptop",
-      "available": true
+      "available": false
     },
     {
       "id": 4,
       "title": "4: item",
       "description": "new desc",
-      "available": true
+      "available": false
     }
   ]
 }

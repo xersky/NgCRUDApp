@@ -11,7 +11,6 @@ import {UpdateComponent} from './update/update.component';
 import { ReadItemsComponent } from './read/read-items/read-items.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ReadBarComponent } from './read/read-bar/read-bar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +21,6 @@ import { ReadBarComponent } from './read/read-bar/read-bar.component';
     UpdateComponent,
     ReadItemsComponent,
     NavbarComponent,
-    ReadBarComponent,
   ],
   imports: [
     BrowserModule,
