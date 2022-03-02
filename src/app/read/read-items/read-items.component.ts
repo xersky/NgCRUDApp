@@ -1,8 +1,7 @@
 import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
-import {ItemService} from '../../services/item.service';
 import {Item} from '../../models/item.model';
 import {Observable} from 'rxjs';
-import {ItemState} from '../../state/product.state';
+import {DataStateTypeEnum, ItemState} from '../../state/product.state';
 
 
 @Component({
@@ -12,12 +11,11 @@ import {ItemState} from '../../state/product.state';
 })
 export class ReadItemsComponent implements OnInit {
 
-  //@Input() items: Observable<ItemState<Item[]>>| null = null;
-  @Input() items: Item[] | null = null;
+  @Input() items$: Observable<ItemState<Item[]>>| null = null;
   @Output() newItemAvailabilityEvent = new EventEmitter<Item>();
+  readonly dataStateTypeEnum = DataStateTypeEnum;
 
-
-  constructor(private itemService: ItemService) {
+  constructor() {
   }
 
   ngOnInit(): void {
