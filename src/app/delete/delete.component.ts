@@ -18,7 +18,6 @@ export class DeleteComponent implements OnInit {
   deleteItem(): void {
     this.itemService.delete(this.route.snapshot.params['id'])
       .subscribe(res => {
-          console.log(res);
           this.router.navigate(['/items']);
         },
         error => {

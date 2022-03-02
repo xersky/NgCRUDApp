@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ItemService} from '../services/item.service';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
@@ -15,7 +15,7 @@ export class CreateComponent implements OnInit {
 
 
   constructor(private itemService: ItemService, private formBuilder: FormBuilder, private router: Router) {
-    this.createFormItem()
+    this.createFormItem();
   }
 
   ngOnInit(): void {

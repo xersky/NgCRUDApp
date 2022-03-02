@@ -3,26 +3,26 @@
     {
       "id": 1,
       "title": "1: item",
-      "description": "phone",
-      "available": true
+      "description": "Phone",
+      "available": false
     },
     {
       "id": 2,
       "title": "2: item",
-      "description": "tv",
-      "available": false
-    },
-    {
-      "id": 3,
-      "title": "3: item",
-      "description": "laptop",
+      "description": "TV",
       "available": true
     },
     {
-      "id": 4,
-      "title": "4: item",
-      "description": "new desc",
-      "available": false
+      "title": "3: item",
+      "description": "Laptop",
+      "available": true,
+      "id": 3
+    },
+    {
+      "title": "TEST REF",
+      "description": "TEST DESC",
+      "available": false,
+      "id": 4
     }
   ]
 }

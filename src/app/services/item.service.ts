@@ -27,15 +27,18 @@ export class ItemService {
   }
 
   update(data: Item, id: number): Observable<Item> {
-
     return this.httpClient.put<Item>(this.URI + '/' + data.id, data);
   }
-  updateAvailabilite(data: Item): Observable<Item> {
+  updateAvailability(data: Item): Observable<Item> {
     data.available = !data.available
     return this.httpClient.put<Item>(this.URI + '/' + data.id, data);
   }
 
   delete(id: any): Observable<Item> {
     return this.httpClient.delete<Item>(this.URI + '/' + id)
+  }
+
+  deleteItem(data: Item): Observable<Item> {
+    return this.httpClient.delete<Item>(this.URI + '/' + data.id)
   }
 }

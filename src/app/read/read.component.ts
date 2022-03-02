@@ -3,7 +3,7 @@ import {ItemService} from '../services/item.service';
 import {Item} from '../models/item.model';
 import {Observable, of} from 'rxjs';
 import {ActionEvent, DataStateTypeEnum, ItemActionType, ItemState} from '../state/product.state';
-import {catchError, map, retry, startWith} from 'rxjs/operators';
+import {catchError, map, startWith} from 'rxjs/operators';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -47,10 +47,21 @@ export class ReadComponent implements OnInit {
 
 
   switchAvailabilityOfItem(item: Item) {
-    this.itemService.updateAvailabilite(item)
+    this.itemService.updateAvailability(item)
       .subscribe(res => {
-          res.available = item.available
+          res.available = item.available;
           //this.getAllItemsObs();
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
+  deleteItem(item: Item) {
+    this.itemService.deleteItem(item)
+      .subscribe(res => {
+          //res = item
+          this.getAllItemsObs();
         },
         error => {
           console.log(error);
@@ -71,6 +82,9 @@ export class ReadComponent implements OnInit {
         break;
       case ItemActionType.SWITCH_AVAILABILITY:
         this.switchAvailabilityOfItem($event.payload);
+        break;
+      case ItemActionType.DELETE_ITEM:
+        this.deleteItem($event.payload);
         break;
 
     }

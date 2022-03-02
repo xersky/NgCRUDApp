@@ -13,6 +13,7 @@
     <tbody align="center">
     <app-read-items
       (newItemAvailabilityEvent)="onActionEvent($event)"
+      (deleteItemEvent)="onActionEvent($event)"
       [items$]="items$" style="display: contents">
     </app-read-items>
     </tbody>

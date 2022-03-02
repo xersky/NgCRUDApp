@@ -6,7 +6,8 @@ export enum DataStateTypeEnum {
 
 export enum ItemActionType {
   GET_ALL_ITEMS = '[Items] get all Items',
-  SWITCH_AVAILABILITY = '[Item.available] switch availability of Item'
+  SWITCH_AVAILABILITY = '[Item.available] switch availability of Item',
+  DELETE_ITEM = '[Item] delete the specified Item'
 }
 
 export interface ActionEvent {
