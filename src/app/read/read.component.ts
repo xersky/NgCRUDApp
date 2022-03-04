@@ -5,6 +5,7 @@ import {Observable, of} from 'rxjs';
 import {ActionEvent, DataStateTypeEnum, ItemActionType, ItemState} from '../state/product.state';
 import {catchError, map, startWith} from 'rxjs/operators';
 import {ActivatedRoute} from '@angular/router';
+import {EventService} from '../services/event.service';
 
 @Component({
   selector: 'app-read',
@@ -20,11 +21,14 @@ export class ReadComponent implements OnInit {
 
   @Input() submittedItem: Boolean | undefined;
 
-  constructor(private itemService: ItemService, private activatedRoute: ActivatedRoute) {
+  constructor(private itemService: ItemService, private activatedRoute: ActivatedRoute, private eventService: EventService) {
   }
 
 
   ngOnInit(): void {
+    this.eventService.eventObservable.subscribe((action: ActionEvent) => {
+      this.onActionEvent(action);
+    });
   }
 
 

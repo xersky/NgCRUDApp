@@ -4,18 +4,18 @@
       "id": 1,
       "title": "1: item",
       "description": "Phone",
-      "available": false
+      "available": true
     },
     {
       "id": 2,
       "title": "2: item",
       "description": "TV",
-      "available": false
+      "available": true
     },
     {
       "title": "3: item",
       "description": "Laptop",
-      "available": false,
+      "available": true,
       "id": 3
     },
     {

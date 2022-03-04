@@ -1,3 +1,4 @@
+/*
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UpdateComponent } from './update.component';
@@ -23,3 +24,4 @@ describe('UpdateComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+*/

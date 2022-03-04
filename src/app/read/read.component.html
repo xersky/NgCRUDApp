@@ -1,4 +1,4 @@
-<app-read-bar (itemEventEmitter)="onActionEvent($event)"></app-read-bar>
+<app-read-bar></app-read-bar>
 <div class="container-md w-75 p-3">
   <table class="table table-hover">
     <thead align="center">
@@ -12,8 +12,6 @@
     </thead>
     <tbody align="center">
     <app-read-items
-      (newItemAvailabilityEvent)="onActionEvent($event)"
-      (deleteItemEvent)="onActionEvent($event)"
       [items$]="items$" style="display: contents">
     </app-read-items>
     </tbody>
