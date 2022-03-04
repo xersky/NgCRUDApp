@@ -10,19 +10,19 @@
       "id": 2,
       "title": "2: item",
       "description": "TV",
-      "available": true
+      "available": false
     },
     {
       "title": "3: item",
       "description": "Laptop",
-      "available": true,
+      "available": false,
       "id": 3
     },
     {
+      "id": 4,
       "title": "TEST REF",
       "description": "TEST DESC",
-      "available": false,
-      "id": 4
+      "available": false
     }
   ]
 }
