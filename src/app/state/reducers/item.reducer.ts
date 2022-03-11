@@ -1,4 +1,4 @@
-import {Action, createFeatureSelector, createReducer, createSelector, on} from '@ngrx/store';
+import {ActionReducer, ActionReducerMap, createFeatureSelector, createReducer, createSelector, MetaReducer, on} from '@ngrx/store';
 import * as ItemActions from '../actions/item.actions';
 import {EntityState, EntityAdapter, createEntityAdapter} from '@ngrx/entity';
 import {Item} from '../../models/item.model';
@@ -42,10 +42,24 @@ export const itemReducer = createReducer(
   })
 );
 
-export function reducer(state: ItemState | undefined, action: Action) {
+/*export function reducer(state: ItemState | undefined, action: Action) {
   return itemReducer(state, action);
+}*/
+
+export const reducers: ActionReducerMap<any> = {
+  items: itemReducer,
+};
+
+export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
+  return function(state, action) {
+    console.log('state', state);
+    console.log('action', action);
+
+    return reducer(state, action);
+  };
 }
 
+export const metaReducers: MetaReducer<ItemState>[] = [debug];
 
 export const getItemsState = createFeatureSelector<ItemState>('items');
 
