@@ -26,19 +26,21 @@ export class ItemService {
     return this.httpClient.post<Item>(this.URI, data);
   }
 
-  update(data: Item, id: number): Observable<Item> {
+  update(data: Item): Observable<Item> {
     return this.httpClient.put<Item>(this.URI + '/' + data.id, data);
   }
+
   updateAvailability(data: Item): Observable<Item> {
-    data.available = !data.available
-    return this.httpClient.put<Item>(this.URI + '/' + data.id, data);
+    let dataAvailabilityChanged = {...data}
+    dataAvailabilityChanged.available = !dataAvailabilityChanged.available
+    return this.httpClient.put<Item>(this.URI + '/' + dataAvailabilityChanged.id, dataAvailabilityChanged);
   }
 
   delete(id: any): Observable<Item> {
     return this.httpClient.delete<Item>(this.URI + '/' + id)
   }
 
-  deleteItem(data: Item): Observable<Item> {
-    return this.httpClient.delete<Item>(this.URI + '/' + data.id)
+  deleteItem(data: Item): Observable<void> {
+    return this.httpClient.delete<void>(this.URI + '/' + data.id)
   }
 }

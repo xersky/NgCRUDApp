@@ -1,9 +1,9 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Item} from '../../models/item.model';
+import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
-import {ActionEvent, DataStateTypeEnum, ItemActionType, ItemState} from '../../state/product.state';
 import {EventService} from '../../services/event.service';
-
+import * as fromItemActions from '../../state/actions/item.actions';
 
 @Component({
   selector: 'app-read-items',
@@ -12,24 +12,20 @@ import {EventService} from '../../services/event.service';
 })
 export class ReadItemsComponent implements OnInit {
 
-  @Input() items$: Observable<ItemState<Item[]>> | null = null;
+  @Input() items$: Observable<Item[]> | null = null;
 
-  readonly dataStateTypeEnum = DataStateTypeEnum;
-
-  constructor(private eventService: EventService) {
+  constructor(private eventService: EventService, private store: Store) {
   }
 
   ngOnInit(): void {
   }
 
-  updateItem(item: Item) {
-    //this.newItemAvailabilityEvent.emit({actionType: ItemActionType.SWITCH_AVAILABILITY, payload: item});
-    this.eventService.publish({actionType: ItemActionType.SWITCH_AVAILABILITY, payload: item});
+  switchAvailabilityItem(item: Item) {
+    this.store.dispatch(fromItemActions.switchItemAvailabilityAction({item}));
   }
 
   deleteItem(item: Item) {
-    //this.deleteItemEvent.emit({actionType: ItemActionType.DELETE_ITEM, payload: item})
-    this.eventService.publish({actionType: ItemActionType.DELETE_ITEM, payload: item});
+    this.store.dispatch(fromItemActions.deleteItemAction({item}));
   }
 
 }

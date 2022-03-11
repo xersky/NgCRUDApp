@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable, Subject} from 'rxjs';
-import {ActionEvent} from '../state/product.state';
+import {ActionEvent} from '../state/item.state';
 
 @Injectable({
   providedIn: 'root'

@@ -1,6 +1,8 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {ActionEvent, ItemActionType} from '../../state/product.state';
+import {Component, OnInit} from '@angular/core';
 import {EventService} from '../../services/event.service';
+import * as fromItemActions from '../../state/actions/item.actions';
+import {Store} from '@ngrx/store';
+import {Item} from '../../models/item.model';
 
 @Component({
   selector: 'app-read-bar',
@@ -10,14 +12,14 @@ import {EventService} from '../../services/event.service';
 export class ReadBarComponent implements OnInit {
 
 
-  constructor(private eventService: EventService) { }
+  constructor(private eventService: EventService, private store: Store<Item>) {
+  }
 
   ngOnInit(): void {
   }
 
   getAllItems() {
-   // this.itemEventEmitter.emit({actionType:ItemActionType.GET_ALL_ITEMS})
-    this.eventService.publish({actionType:ItemActionType.GET_ALL_ITEMS})
+    this.store.dispatch(fromItemActions.getAllItemsAction());
   }
 
 }

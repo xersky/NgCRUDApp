@@ -4,7 +4,7 @@
       "id": 1,
       "title": "1: item",
       "description": "Phone",
-      "available": true
+      "available": false
     },
     {
       "id": 2,
@@ -15,14 +15,8 @@
     {
       "title": "3: item",
       "description": "Laptop",
-      "available": true,
+      "available": false,
       "id": 3
-    },
-    {
-      "id": 4,
-      "title": "TEST REF",
-      "description": "TEST DESC",
-      "available": false
     }
   ]
 }

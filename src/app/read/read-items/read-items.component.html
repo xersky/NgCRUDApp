@@ -1,23 +1,17 @@
-<ng-container *ngIf="items$ | async as result" [ngSwitch]="result.state">
-  <ng-container *ngSwitchCase="dataStateTypeEnum.LOADING">
-    <h3>Loading Items...</h3>
-  </ng-container>
-  <ng-container *ngSwitchCase="dataStateTypeEnum.ERROR">
-    <h3>Fetching Items Error!</h3>
-  </ng-container>
-  <ng-container *ngSwitchCase="dataStateTypeEnum.SUCCESS">
-    <tr *ngFor="let item of result.data" >
-      <th>{{item.id}}</th>
-      <td>{{item.title}}</td>
-      <td>{{item.description}}</td>
-      <td *ngIf="item.available">Yes</td>
-      <td *ngIf="!item.available">No</td>
-      <td>
-        <a class="btn btn-primary mx-2" [routerLink]="['/items', item.id]">Edit</a>
-        <a class="btn btn-danger mx-2" (click)="deleteItem(item)">Delete</a>
-        <a class="btn btn-info" *ngIf="!item.available" (click)="updateItem(item)">Switch to Available</a>
-        <a class="btn btn-info" *ngIf="item.available" (click)="updateItem(item)">Switch to Unavailable</a>
-      </td>
-    </tr>
-  </ng-container>
+<ng-container>
+  <tr *ngFor="let item of items$ |async as result">
+    <th>{{item.id}}</th>
+    <td>{{item.title}}</td>
+    <td>{{item.description}}</td>
+    <td *ngIf="item.available">Yes</td>
+    <td *ngIf="!item.available">No</td>
+    <td>
+      <a class="btn btn-primary mx-2" data-bs-toggle="modal" attr.data-bs-target="#item{{item.id}}">Edit</a>
+      <app-item-update-modal [item]="item" ></app-item-update-modal>
+      <a class="btn btn-danger mx-2" (click)="deleteItem(item)">Delete</a>
+      <a class="btn btn-info" *ngIf="!item.available" (click)="switchAvailabilityItem(item)">Switch to Available</a>
+      <a class="btn btn-info" *ngIf="item.available" (click)="switchAvailabilityItem(item)">Switch to Unavailable</a>
+    </td>
+  </tr>
 </ng-container>
+

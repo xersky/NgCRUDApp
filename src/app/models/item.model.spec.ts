@@ -1,3 +1,4 @@
+/*
 import { Item } from './item.model';
 
 describe('Item', () => {
@@ -5,3 +6,4 @@ describe('Item', () => {
     expect(new Item()).toBeTruthy();
   });
 });
+*/

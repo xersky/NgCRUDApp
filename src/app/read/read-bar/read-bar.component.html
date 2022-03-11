@@ -1,4 +1,6 @@
 <div class="container mt-5">
-  <button (click)="getAllItems()" class="btn btn-info">Get All Items</button>
+  <button type="button" class="btn btn-info mx-1" (click)="getAllItems()">Get All Items</button>
+  <button type="button" data-bs-toggle="modal" data-bs-target="#newItemModal" class="btn btn-info">New Item</button>
+  <app-item-modal></app-item-modal>
 </div>
 

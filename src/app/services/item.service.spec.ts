@@ -57,7 +57,7 @@ describe('ItemService', () => {
   });
 
   it('should create an item', (done) => {
-    let itemCreatedTest: Item = { title: 'pog', description: 'desc', available: false}
+    let itemCreatedTest: Item = {id: 5, title: 'pog', description: 'desc', available: false}
 
     service.create(itemCreatedTest).subscribe(item => {
       expect(item.id).toBe(5)
@@ -69,9 +69,9 @@ describe('ItemService', () => {
   });
 
   it('should update an item', (done) => {
-    let itemCreatedTest: Item = {id: 5, title: 'pog updated', description: 'desc updated', available: true}
+    let itemToUpdateTest: Item = {id: 5, title: 'pog updated', description: 'desc updated', available: true}
 
-    service.update(itemCreatedTest, 5).subscribe(item => {
+    service.update(itemToUpdateTest).subscribe(item => {
       expect(item.id).toBe(5)
       expect(item.title).toBe("pog updated")
       expect(item.description).toBe("desc updated")
