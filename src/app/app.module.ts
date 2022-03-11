@@ -16,6 +16,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { ItemEffects } from './state/effects/item.effects';
 import { ItemModalComponent } from './read/modals/item-modal/item-modal.component';
 import { ItemUpdateModalComponent } from './read/modals/item-update-modal/item-update-modal.component';
+import {metaReducers} from './state/reducers/item.reducer';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { ItemUpdateModalComponent } from './read/modals/item-update-modal/item-u
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({items: fromItem.reducer}),
+    StoreModule.forRoot(fromItem.reducers, {metaReducers}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([ItemEffects])
   ],
