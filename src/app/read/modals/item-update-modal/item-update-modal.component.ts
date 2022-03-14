@@ -30,10 +30,6 @@ export class ItemUpdateModalComponent implements OnInit {
     });
   }
 
-  /*getItem() {
-    this.store.dispatch(fromItemActions.getItemByIdAction({itemId: this.id}));
-  }*/
-
   updateItem() {
     this.store.dispatch(fromItemActions.updateItemAction({item: this.itemFormUpdate.value}));
   }

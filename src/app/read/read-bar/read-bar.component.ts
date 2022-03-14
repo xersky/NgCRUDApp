@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {EventService} from '../../services/event.service';
 import * as fromItemActions from '../../state/actions/item.actions';
 import {Store} from '@ngrx/store';
 import {Item} from '../../models/item.model';
@@ -12,7 +11,7 @@ import {Item} from '../../models/item.model';
 export class ReadBarComponent implements OnInit {
 
 
-  constructor(private eventService: EventService, private store: Store<Item>) {
+  constructor(private store: Store<Item>) {
   }
 
   ngOnInit(): void {

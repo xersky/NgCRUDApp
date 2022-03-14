@@ -28,8 +28,6 @@ export class ItemModalComponent implements OnInit {
       description: new FormControl('', Validators.required),
       available: new FormControl(false),
     });
-
-
   }
 
 
