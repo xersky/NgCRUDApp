@@ -3,14 +3,14 @@
     <a class="navbar-brand" href="">
       <img src="../../assets/img/orange-logo.svg" width="50" height="50" alt="Boosted" loading="lazy">
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" routerLink="">Main Page</a>
-        <a class="nav-link" routerLink="/new">Create Items</a>
-        <a class="nav-link" routerLink="/items">Read Items</a>
+        <a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" routerLink="">Main Page</a>
+        <a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" routerLink="/items">Read Items</a>
       </div>
     </div>
   </div>
