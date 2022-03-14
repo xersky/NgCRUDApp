@@ -12,7 +12,6 @@ import {ItemService} from '../services/item.service';
 export class UpdateComponent implements OnInit {
 
   itemFormUpdate!: FormGroup;
-
   item: Item | null = null;
 
   constructor(private formBuilder: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute, private itemService: ItemService) {
@@ -21,15 +20,8 @@ export class UpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.getItem()
-    //this.updateFormItem()
   }
 
-  /*
-    selectedItem?: Item;
-    onSelect(item: Item){
-      this.selectedItem = item;
-    }
-  */
   getItem() {
     this.itemService.getItemById(this.activatedRoute.snapshot.params['id']).subscribe((res: Item) => {
       this.item = res;
@@ -40,7 +32,6 @@ export class UpdateComponent implements OnInit {
   }
 
   updateFormItem(item : Item) {
-    console.log(this.item)
     this.itemFormUpdate = this.formBuilder.group({
       id: new FormControl(item.id),
       title: new FormControl(item.title, Validators.required),

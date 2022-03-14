@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ItemService} from '../services/item.service';
 import {Item} from '../models/item.model';
 import {Observable, of} from 'rxjs';
@@ -11,15 +11,12 @@ import {EventService} from '../services/event.service';
   selector: 'app-read',
   templateUrl: './read.component.html',
   styleUrls: ['./read.component.css'],
-
 })
+
 export class ReadComponent implements OnInit {
 
   items: Item[] | null = null;
   items$: Observable<ItemState<Item[]>> | null = null;
-  item$: Observable<ItemState<Item>> | null = null;
-
-  @Input() submittedItem: Boolean | undefined;
 
   constructor(private itemService: ItemService, private activatedRoute: ActivatedRoute, private eventService: EventService) {
   }
@@ -40,21 +37,10 @@ export class ReadComponent implements OnInit {
     );
   }
 
-
-  /*getAllItems() {
-    this.itemService.getAll().subscribe((res: any) => {
-      this.items = res;
-    }, error => {
-      console.error(error.message);
-    });
-  }*/
-
-
   switchAvailabilityOfItem(item: Item) {
     this.itemService.updateAvailability(item)
       .subscribe(res => {
           res.available = item.available;
-          //this.getAllItemsObs();
         },
         error => {
           console.log(error);
@@ -64,20 +50,12 @@ export class ReadComponent implements OnInit {
   deleteItem(item: Item) {
     this.itemService.deleteItem(item)
       .subscribe(res => {
-          //res = item
           this.getAllItemsObs();
         },
         error => {
           console.log(error);
         });
   }
-
-  /*
-  selectedItem?: Item;
-  onSelect(item: Item): void {
-    this.selectedItem = item;
-  }
-  */
 
   onActionEvent($event: ActionEvent) {
     switch ($event.actionType) {
@@ -90,8 +68,6 @@ export class ReadComponent implements OnInit {
       case ItemActionType.DELETE_ITEM:
         this.deleteItem($event.payload);
         break;
-
     }
   }
-
 }

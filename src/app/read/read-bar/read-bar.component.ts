@@ -1,5 +1,5 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {ActionEvent, ItemActionType} from '../../state/product.state';
+import {Component, OnInit} from '@angular/core';
+import {ItemActionType} from '../../state/product.state';
 import {EventService} from '../../services/event.service';
 
 @Component({
@@ -16,7 +16,6 @@ export class ReadBarComponent implements OnInit {
   }
 
   getAllItems() {
-   // this.itemEventEmitter.emit({actionType:ItemActionType.GET_ALL_ITEMS})
     this.eventService.publish({actionType:ItemActionType.GET_ALL_ITEMS})
   }
 
