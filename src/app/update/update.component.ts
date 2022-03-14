@@ -23,12 +23,6 @@ export class UpdateComponent implements OnInit {
     this.getItem()
   }
 
-  /*
-    selectedItem?: Item;
-    onSelect(item: Item){
-      this.selectedItem = item;
-    }
-  */
   getItem() {
     this.itemService.getItemById(this.activatedRoute.snapshot.params['id']).subscribe((res: Item) => {
       this.item = res;

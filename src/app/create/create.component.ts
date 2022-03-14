@@ -11,7 +11,6 @@ import {Router} from '@angular/router';
 export class CreateComponent implements OnInit {
 
   itemForm !: FormGroup;
-  submittedItem = false;
 
 
   constructor(private itemService: ItemService, private formBuilder: FormBuilder, private router: Router) {
@@ -32,16 +31,10 @@ export class CreateComponent implements OnInit {
   submitItem(): void {
     this.itemService.create(this.itemForm.value)
       .subscribe(res => {
-          this.submittedItem = true;
           this.router.navigate(['/items']);
         },
         error => {
           console.log(error);
         });
-
-    // console.warn(this.itemForm.value);
-
-    //  setTimeout(()=>{ this.router.navigate(['/read']) }, 69)
-
   }
 }

@@ -12,8 +12,6 @@ export class ReadComponent implements OnInit {
 
   items: Item[] | null = null;
 
-  @Input() submittedItem: Boolean | undefined;
-
   constructor(private itemService: ItemService) {
   }
 
