@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ReadComponent } from './read/read.component';
 
 const routes: Routes = [
-  { path: 'items', component: ReadComponent}
+  { path: 'items', component: ReadComponent},
 ];
 
 @NgModule({

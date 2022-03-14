@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Item} from '../../models/item.model';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
-import {EventService} from '../../services/event.service';
 import * as fromItemActions from '../../state/actions/item.actions';
 
 @Component({
@@ -14,7 +13,7 @@ export class ReadItemsComponent implements OnInit {
 
   @Input() items$: Observable<Item[]> | null = null;
 
-  constructor(private eventService: EventService, private store: Store) {
+  constructor(private store: Store) {
   }
 
   ngOnInit(): void {
