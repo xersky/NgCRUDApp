@@ -34,7 +34,7 @@ import {metaReducers} from './state/reducers/item.reducer';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot(fromItem.reducers, {metaReducers}),
+    StoreModule.forRoot({items: fromItem.reducer}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([ItemEffects])
   ],

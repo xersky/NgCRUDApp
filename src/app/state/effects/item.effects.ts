@@ -60,7 +60,7 @@ export class ItemEffects {
             map(
               (item) => (fromItemAction.createItemActionSuccess({item}))
             ),
-            catchError(() => EMPTY)
+            catchError(() => fromItemAction.createItemActionSuccess)
           ))
       )
   );
