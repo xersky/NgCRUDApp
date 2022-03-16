@@ -1,57 +1,74 @@
 import {createAction, props} from '@ngrx/store';
 import {Item} from '../../models/item.model';
 
+export enum itemActionType {
+
+  GET_ALL_ITEMS = "[Item] Get all items",
+  GET_ALL_ITEMS_SUCCESS = "[Item] Get all items success",
+  CREATE_ITEM = "[Item] Create item",
+  CREATE_ITEM_SUCCESS = "[Item] Create item success",
+  SWITCH_ITEM_AVAILABILITY = "[Item.available] Switch availability of Item",
+  SWITCH_ITEM_AVAILABILITY_SUCCESS = "[Item.available] Switch availability of Item success",
+  DELETE_ITEM = "[Item] Delete the specified Item",
+  DELETE_ITEM_SUCCESS = "[Item] Delete the specified Item success",
+  UPDATE_ITEM = "[Item] Update the specified Item",
+  UPDATE_ITEM_SUCCESS = "[Item] Update the specified Item success",
+  GET_ITEM_BY_ID = "[Item] Get item by ID",
+  GET_ITEM_BY_ID_SUCCESS = "[Item] Get item by ID success"
+
+}
+
 export const getAllItemsAction = createAction(
-  '[Item] Get all items',
+  itemActionType.GET_ALL_ITEMS
 );
 
 export const getAllItemsActionSuccess = createAction(
-  '[Item] Get all items success',
+  itemActionType.GET_ALL_ITEMS_SUCCESS,
   props<{items: Item[]}>()
 );
 
 export const createItemAction = createAction(
-  '[Item] Create item',
+  itemActionType.CREATE_ITEM,
   props<{item: Item}>()
 );
 export const createItemActionSuccess = createAction(
-  '[Item] Create item success',
+  itemActionType.CREATE_ITEM_SUCCESS,
   props<{item: Item}>()
 );
 export const switchItemAvailabilityAction = createAction(
-  '[Item.available] Switch availability of Item',
+  itemActionType.SWITCH_ITEM_AVAILABILITY,
   props<{item: Item}>()
 );
 export const switchItemAvailabilityActionSuccess = createAction(
-  '[Item.available] Switch availability of Item success',
+  itemActionType.SWITCH_ITEM_AVAILABILITY_SUCCESS,
   props<{item: Item}>()
 );
 
 export const deleteItemAction = createAction(
-  '[Item] Delete the specified Item',
+  itemActionType.DELETE_ITEM,
   props<{item: Item}>()
 );
 export const deleteItemActionSuccess = createAction(
-  '[Item] Delete the specified Item success',
+  itemActionType.DELETE_ITEM_SUCCESS,
   props<{item: Item}>()
 );
 
 
 export const updateItemAction = createAction(
-  '[Item] Update the specified Item',
+  itemActionType.UPDATE_ITEM,
   props<{item: Item}>()
 );
 export const updateItemActionSuccess = createAction(
-  '[Item] Update the specified Item success',
+  itemActionType.UPDATE_ITEM_SUCCESS,
   props<{item: Item}>()
 );
 
 export const getItemByIdAction = createAction(
-  '[Item] Get item by id',
+  itemActionType.GET_ITEM_BY_ID,
   props<{itemId: number}>()
 );
 
 export const getItemByIdActionSuccess = createAction(
-  '[Item] Get item by id success',
+  itemActionType.GET_ITEM_BY_ID_SUCCESS,
   props<{item: Item}>()
 );
