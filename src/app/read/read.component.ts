@@ -1,6 +1,9 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ItemService} from '../services/item.service';
 import {Item} from '../models/item.model';
+import {Observable} from 'rxjs';
+import {Store} from '@ngrx/store';
+import {getAllItems} from '../state/reducers/item.reducer';
 
 @Component({
   selector: 'app-read',
@@ -10,34 +13,13 @@ import {Item} from '../models/item.model';
 })
 export class ReadComponent implements OnInit {
 
-  items: Item[] | null = null;
+  items$: Observable<Item[]> | null = null;
 
-  constructor(private itemService: ItemService) {
+  constructor(private itemService: ItemService, private store: Store) {
   }
-
 
   ngOnInit(): void {
-    this.getAllItems()
+    this.items$ = this.store.select(getAllItems);
   }
-
-
-  getAllItems() {
-    this.itemService.getAll().subscribe((res: any) => {
-      this.items = res;
-    }, error => {
-      console.error(error.message);
-    });
-  }
-
-  switchAvailabilityOfItem(item: Item) {
-    item.available = !item.available;
-    this.itemService.update(item, item.id)
-      .subscribe(res => {
-        },
-        error => {
-          console.log(error.message);
-        });
-  }
-
 
 }

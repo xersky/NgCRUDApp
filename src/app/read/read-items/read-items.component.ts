@@ -1,6 +1,8 @@
-import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Item} from '../../models/item.model';
-
+import {Store} from '@ngrx/store';
+import {Observable} from 'rxjs';
+import * as fromItemActions from '../../state/actions/item.actions';
 
 @Component({
   selector: 'app-read-items',
@@ -9,17 +11,20 @@ import {Item} from '../../models/item.model';
 })
 export class ReadItemsComponent implements OnInit {
 
-  @Input() items: Item[] | null = null;
-  @Output() newItemAvailabilityEvent = new EventEmitter<Item>();
+  @Input() items$: Observable<Item[]> | null = null;
 
-  constructor() {
+  constructor(private store: Store) {
   }
 
   ngOnInit(): void {
   }
 
-  updateItem(item: Item) {
-    this.newItemAvailabilityEvent.emit(item);
+  switchAvailabilityItem(item: Item) {
+    this.store.dispatch(fromItemActions.switchItemAvailabilityAction({item}));
+  }
+
+  deleteItem(item: Item) {
+    this.store.dispatch(fromItemActions.deleteItemAction({item}));
   }
 
 }

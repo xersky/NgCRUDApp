@@ -1,5 +1,5 @@
-export class Item {
-  id?: number
+export interface Item {
+  id: number
   title?: string
   description?: string
   available? :boolean

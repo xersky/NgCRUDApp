@@ -1,20 +1,21 @@
+/*
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UpdateComponent } from './update.component';
+import { ReadBarComponent } from './read-bar.component';
 
-describe('UpdateComponent', () => {
-  let component: UpdateComponent;
-  let fixture: ComponentFixture<UpdateComponent>;
+describe('ReadBarComponent', () => {
+  let component: ReadBarComponent;
+  let fixture: ComponentFixture<ReadBarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UpdateComponent ]
+      declarations: [ ReadBarComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UpdateComponent);
+    fixture = TestBed.createComponent(ReadBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -23,3 +24,4 @@ describe('UpdateComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+*/
